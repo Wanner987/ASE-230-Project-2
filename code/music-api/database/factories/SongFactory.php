@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Song;
+use App\Models\Artist;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,9 @@ class SongFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->sentence(3),
+            'artist_id' => Artist::factory(),
+            'duration' => $this->faker->numberBetween(120, 420), // duration in seconds
         ];
     }
 }

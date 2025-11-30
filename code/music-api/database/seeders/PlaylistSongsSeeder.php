@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PlaylistSongs;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,8 @@ class PlaylistSongsSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        PlaylistSongs::factory()
+            ->count(50)
+            ->create();
     }
 }

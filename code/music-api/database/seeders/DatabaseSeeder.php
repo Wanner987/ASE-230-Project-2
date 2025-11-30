@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Artist;
+use App\Models\Song;
+use App\Models\Playlist;
+use App\Models\PlaylistSongs;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +19,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            ArtistSeeder::class,
+            SongSeeder::class,
+            PlaylistSeeder::class,
+            PlaylistSongsSeeder::class,
+        ]);
         // User::factory(10)->create();
 
         User::factory()->create([

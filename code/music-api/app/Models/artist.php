@@ -18,5 +18,4 @@ class artist extends Model
         return $this->hasOne(user::class);
     }
 
-    
 }

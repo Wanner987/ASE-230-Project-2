@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('duration'); // duration in seconds
+            $table-> foreignId('artist_id')->constrained('artists')->onDelete('cascade');
             $table->timestamps();
         });
     }
