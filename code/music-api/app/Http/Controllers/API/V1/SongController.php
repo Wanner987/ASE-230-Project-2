@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
 use App\Models\song;
 use App\Http\Requests\StoresongRequest;
 use App\Http\Requests\UpdatesongRequest;
+use App\Http\Controllers\Controller;
 
 class SongController extends Controller
 {
