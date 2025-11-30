@@ -6,6 +6,8 @@ use App\Models\artist;
 use App\Http\Requests\StoreartistRequest;
 use App\Http\Requests\UpdateartistRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\ArtistResource;
+use App\Http\Resources\V1\ArtistCollection;
 
 class ArtistController extends Controller
 {
@@ -14,7 +16,7 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        return artist::all();
+        return new ArtistCollection(artist::all());
     }
 
     /**
@@ -38,7 +40,7 @@ class ArtistController extends Controller
      */
     public function show(artist $artist)
     {
-        //
+        return new ArtistResource($artist);
     }
 
     /**
