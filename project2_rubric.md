@@ -27,8 +27,8 @@ Total Points: 200
 
 **The links to your GitHub repository and Zip file names**
 
-- Your ASE230 Project GitHub Repository: ___
-  - GitHub Link to your code (module 2): ___
+- Your ASE230 Project GitHub Repository: https://github.com/Wanner987/ASE-230-Project-2 
+  - GitHub Link to your code (module 2): https://github.com/Wanner987/ASE-230-Project-2/tree/main/code 
   - The Zip file name: ___ and size: ____
   - GitHub.io Link (module 3): ___
   - The Zip file name: ___ and size: ____
