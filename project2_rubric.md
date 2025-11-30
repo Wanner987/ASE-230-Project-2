@@ -52,6 +52,17 @@ A: Yes, the code directory should contain the Laravel code and scripts (module 2
 
 - [ /15] Re-implemented Project 1 APIs using **Laravel framework** (must have same functionality as Project 1)
   - List your Laravel API endpoints:
+    - Get /artist/id
+    - Get /playlist/id
+    - Get /user/id
+    - Get /song/id  
+    - Post /user
+    - Get /search
+    - Post /auth/login
+    - Post /playlist 
+    - Post /song
+    - Put /playlist
+
   - [T/F] Uses Laravel routing and controllers properly
 - [ /15] Used **Eloquent ORM** for database operations (no raw SQL queries)
   - List your Eloquent models:
