@@ -11,4 +11,5 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\API\V1'], f
     Route::apiResource('artists', ArtistController::class);
     Route::apiResource('songs', SongController::class);
     Route::apiResource('playlists', PlaylistController::class);
+    Route::apiResource('users', UserController::class);
 });

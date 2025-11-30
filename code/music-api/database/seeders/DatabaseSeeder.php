@@ -24,12 +24,8 @@ class DatabaseSeeder extends Seeder
             SongSeeder::class,
             PlaylistSeeder::class,
             PlaylistSongsSeeder::class,
+            UserSeeder::class,
         ]);
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Users are seeded by UserSeeder
     }
 }
