@@ -8,15 +8,25 @@ use App\Http\Requests\UpdateartistRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\ArtistResource;
 use App\Http\Resources\V1\ArtistCollection;
+use Illuminate\Http\Request;
+use App\Filters\V1\ArtistFilter;
 
 class ArtistController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new ArtistCollection(artist::all());
+        $filter = new ArtistFilter();
+        $queryItems = $filter->transform($request); // [['column', 'operator', 'value']]
+
+        if (count($queryItems) == 0) {
+            return new ArtistCollection(Artist::paginate());
+        } else {
+            return new ArtistCollection(Artist::where($queryItems)->paginate());
+        }
+
     }
 
     /**
