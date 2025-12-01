@@ -67,9 +67,9 @@ A: Yes, the code directory should contain the Laravel code and scripts (module 2
 - [ /15] Used **Eloquent ORM** for database operations (no raw SQL queries)
   - List your Eloquent models:
   - [T/F] Proper model relationships implemented
-- [ /10] Implemented authentication using **Laravel Sanctum** or similar
-  - Authentication method used:
-  - [T/F] Bearer token authentication working
+- [ 10/10] Implemented authentication using **Laravel Sanctum** or similar
+  - Authentication method used: Sanctum
+  - [T] Bearer token authentication working
 
 ---
 
@@ -89,9 +89,9 @@ The professor will regrade to add or subtract points.
 | ↳ Uses Laravel routing/controllers        | T/F    | [ T/F ] |
 | Eloquent ORM usage (no raw SQL)           | 15     | [ /15]  |
 | ↳ Proper model relationships              | T/F    | [ T/F ] |
-| Laravel authentication implementation     | 10     | [ /10]  |
-| ↳ Bearer token authentication working     | T/F    | [ T/F ] |
-| **Total**                                 | **40** | [ /40]  |
+| Laravel authentication implementation     | 10     | [ 10/10]  |
+| ↳ Bearer token authentication working     | T/F    | [ T ] |
+| **Total**                                 | **40** | [ 40/40]  |
 
 ---
 
