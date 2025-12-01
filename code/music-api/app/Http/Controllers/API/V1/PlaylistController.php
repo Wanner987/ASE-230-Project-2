@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Models\playlist;
-use App\Http\Requests\StoreplaylistRequest;
-use App\Http\Requests\UpdateplaylistRequest;
+use App\Http\Requests\V1\StoreplaylistRequest;
+use App\Http\Requests\V1\UpdateplaylistRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\PlaylistCollection;
+use App\Http\Resources\V1\PlaylistResource;
 use Illuminate\Http\Request;
 use App\Filters\V1\PlaylistFilter;
 
@@ -27,20 +28,13 @@ class PlaylistController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreplaylistRequest $request)
     {
-        //
+        return new PlaylistResource(playlist::create($request->all()));
     }
 
     /**
@@ -48,15 +42,7 @@ class PlaylistController extends Controller
      */
     public function show(playlist $playlist)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(playlist $playlist)
-    {
-        //
+        return new PlaylistResource($playlist);
     }
 
     /**
@@ -64,7 +50,8 @@ class PlaylistController extends Controller
      */
     public function update(UpdateplaylistRequest $request, playlist $playlist)
     {
-        //
+        $playlist->update($request->all());
+        return new PlaylistResource($playlist);
     }
 
     /**

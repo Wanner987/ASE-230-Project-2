@@ -10,6 +10,11 @@ class artist extends Model
     /** @use HasFactory<\Database\Factories\ArtistFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'user_id',
+    ];
+
     public function song() {
         return $this->hasMany(song::class);
     }

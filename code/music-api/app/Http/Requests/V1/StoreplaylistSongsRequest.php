@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\V1;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreartistRequest extends FormRequest
+class StoreplaylistSongsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreartistRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'playlist_id' => 'required|integer|exists:playlists,id',
+            'song_id' => 'required|integer|exists:songs,id',
         ];
     }
 }

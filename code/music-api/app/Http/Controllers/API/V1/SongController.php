@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Models\song;
-use App\Http\Requests\StoresongRequest;
-use App\Http\Requests\UpdatesongRequest;
+use App\Http\Requests\V1\StoresongRequest;
+use App\Http\Requests\V1\UpdatesongRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\SongCollection;
+use App\Http\Resources\V1\SongResource;
 use Illuminate\Http\Request;
 use App\Filters\V1\SongFilter;
 
@@ -28,19 +29,11 @@ class SongController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StoresongRequest $request)
     {
-        //
+        return new SongResource(song::create($request->all()));
     }
 
     /**
@@ -48,15 +41,7 @@ class SongController extends Controller
      */
     public function show(song $song)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(song $song)
-    {
-        //
+        return new SongResource($song);
     }
 
     /**
@@ -64,7 +49,8 @@ class SongController extends Controller
      */
     public function update(UpdatesongRequest $request, song $song)
     {
-        //
+        $song->update($request->all());
+        return new SongResource($song);
     }
 
     /**

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Models\playlistSongs;
-use App\Http\Requests\StoreplaylistSongsRequest;
-use App\Http\Requests\UpdateplaylistSongsRequest;
+use App\Http\Requests\V1\StoreplaylistSongsRequest;
+use App\Http\Requests\V1\UpdateplaylistSongsRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\PlaylistSongsCollection;
+use App\Http\Resources\V1\PlaylistSongsResource;
 use Illuminate\Http\Request;
 use App\Filters\V1\PlaylistSongsFilter;
 
@@ -40,7 +41,7 @@ class PlaylistSongsController extends Controller
      */
     public function store(StoreplaylistSongsRequest $request)
     {
-        //
+        return new PlaylistSongsResource(playlistSongs::create($request->all()));
     }
 
     /**
@@ -48,7 +49,7 @@ class PlaylistSongsController extends Controller
      */
     public function show(playlistSongs $playlistSongs)
     {
-        //
+        return new PlaylistSongsResource($playlistSongs);
     }
 
     /**
@@ -64,7 +65,8 @@ class PlaylistSongsController extends Controller
      */
     public function update(UpdateplaylistSongsRequest $request, playlistSongs $playlistSongs)
     {
-        //
+        $playlistSongs->update($request->all());
+        return new PlaylistSongsResource($playlistSongs);
     }
 
     /**
