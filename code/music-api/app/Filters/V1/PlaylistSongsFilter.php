@@ -5,11 +5,11 @@ namespace App\Filters\V1;
 use App\Filters\ApiFilter;
 use Illuminate\Http\Request;
 
-class ArtistFilter extends ApiFilter
+class PlaylistSongsFilter extends ApiFilter
 {
     protected $safeParams = [
-        'name' => ['like'],
-        'id' => ['eq', 'lt', 'gt', 'lte', 'gte'],
+        'playlist_id' => ['eq'],
+        'song_id' => ['eq'],
     ];
 
     protected $operatorMap = [

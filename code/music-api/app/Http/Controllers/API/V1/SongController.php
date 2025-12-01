@@ -6,15 +6,25 @@ use App\Models\song;
 use App\Http\Requests\StoresongRequest;
 use App\Http\Requests\UpdatesongRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\SongCollection;
+use Illuminate\Http\Request;
+use App\Filters\V1\SongFilter;
 
 class SongController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $filter = new SongFilter();
+        $queryItems = $filter->transform($request); // [['column', 'operator', 'value']]
+
+        if (count($queryItems) == 0) {
+            return new SongCollection(song::paginate());
+        } else {
+            return new SongCollection(song::where($queryItems)->paginate());
+        }
     }
 
     /**

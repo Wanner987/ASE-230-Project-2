@@ -11,6 +11,7 @@ use App\Http\Resources\V1\ArtistCollection;
 use Illuminate\Http\Request;
 use App\Filters\V1\ArtistFilter;
 
+
 class ArtistController extends Controller
 {
     /**

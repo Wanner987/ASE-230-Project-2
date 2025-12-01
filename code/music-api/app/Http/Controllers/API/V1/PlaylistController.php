@@ -6,15 +6,25 @@ use App\Models\playlist;
 use App\Http\Requests\StoreplaylistRequest;
 use App\Http\Requests\UpdateplaylistRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\PlaylistCollection;
+use Illuminate\Http\Request;
+use App\Filters\V1\PlaylistFilter;
 
 class PlaylistController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $filter = new PlaylistFilter();
+        $queryItems = $filter->transform($request); // [['column', 'operator', 'value']]
+
+        if (count($queryItems) == 0) {
+            return new PlaylistCollection(playlist::paginate());
+        } else {
+            return new PlaylistCollection(playlist::where($queryItems)->paginate());
+        }
     }
 
     /**

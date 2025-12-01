@@ -2,41 +2,42 @@
 
 namespace App\Filters;
 
-use App\Models\Artist;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-class ArtistFilter extends ApiFilter
+class ApiFilter
 {
-    protected $allowedParms = [];
+    protected $safeParams = [];
 
     protected $columnMap = [];
 
-    protected $operatorMap = [];
+    protected $operatorMap = [
+        'eq' => '=',
+        'lt' => '<',
+        'gt' => '>',
+        'lte' => '<=',
+        'gte' => '>=',
+    ];
 
     public function transform(Request $request)
     {
         $queryItems = [];
 
-        foreach ($this->allowedParms as $parm => $operators) {
-            $query = $request->query($parm);
+        foreach ($this->safeParams as $param => $operators) {
+            $query = $request->query($param);
+
             if (!isset($query)) {
                 continue;
             }
 
-            $column = $this->columnMap[$parm] ?? $parm;
+            $column = $this->columnMap[$param] ?? $param;
 
             foreach ($operators as $operator) {
                 if (isset($query[$operator])) {
-                    $queryItems[] = [
-                        $column,
-                        $this->operatorMap[$operator], 
-                        $query[$operator]
-                    ];
+                    $op = $this->operatorMap[$operator];
+                    $queryItems[] = [$column, $op, $query[$operator]];
                 }
             }
         }
-
 
         return $queryItems;
     }
