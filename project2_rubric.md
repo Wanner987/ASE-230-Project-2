@@ -131,13 +131,13 @@ A: You should prove that your code (or script) works by screen capture your outp
 ## 🔹 Deploy with Docker (40 pts)
 
 - [ /15] **Containerized Laravel application** using Docker and Docker Compose
-  - Docker files created:
+  - Docker files created: 
   - [T/F] Dockerfile properly configured for Laravel
 - [ /15] Created **setup script** (`setup.sh`) for one-command Docker deployment
   - Setup script file name:
   - [T/F] Script successfully builds and runs Docker containers
 - [ /10] Created a screen capture to show the script can setup and run Docker
-  - GitHub Link or Filename of the screen capture:
+  - GitHub Link or Filename of the screen capture: 
   - [T/F] Screen capture included
 
 ---
@@ -243,12 +243,12 @@ Professor will regrade to add or subtract points.
 
 | Task                                    | Points  | Earned  |
 |-----------------------------------------|---------|---------|
-| 🔹 Laravel Implementation               | 40      | [ /40]  |
-| 🔹 Deploy with a shell script           | 40      | [ /40]  |
+| 🔹 Laravel Implementation               | 40      | [ 40/40]  |
+| 🔹 Deploy with a shell script           | 40      | [ 40/40]  |
 | 🔹 Deploy with Docker                   | 40      | [ /40]  |
 | 🔹 Re-implement Project 1 Documentation | 40      | [ /40]  |
 | 🔹 Automatic Deploy to GitHub.io        | 40      | [ /40]  |
-| **Total**                               | **200** | [ /200] |
+| **Total**                               | **200** | [ 80/200] |
 
 ---
 
