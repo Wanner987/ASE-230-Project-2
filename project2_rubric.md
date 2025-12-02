@@ -97,27 +97,27 @@ The professor will regrade to add or subtract points.
 
 ## 🔹 Deploy with a shell script (40 pts)
 
-- [ /15] Understand **existing shell script examples** from course materials as reference
-  - Reference materials used:
+- [ 15/15] Understand **existing shell script examples** from course materials as reference
+  - Reference materials used: module 2 
   - [T/F] Properly adapted existing scripts for Laravel
-- [ /15] Created **automated deployment script** (`run.sh`) for one-command Laravel deployment
-  - Script file name:
+- [ 15/15] Created **automated deployment script** (`run.sh`) for one-command Laravel deployment
+  - Script file name: run.sh
   - [T/F] Script successfully deploys Laravel application
 - [ /10] Created a screen capture to show the script can start the Laravel REST API project
-  - GitHub Link or Filename of the screen capture:
+  - GitHub Link or Filename of the screen capture: 
   - [T/F] Screen capture included
 
 ---
 
 | Task                                  | Points | Earned  |
 |---------------------------------------|--------|---------|
-| Automated deployment script (run.sh)  | 15     | [ /15]  |
-| ↳ Script successfully deploys Laravel | T/F    | [ T/F ] |
-| Used existing shell script examples   | 15     | [ /15]  |
-| ↳ Properly adapted for Laravel        | T/F    | [ T/F ] |
-| Created a screen capture              | 10     | [ /10]  |
-| ↳ Clear success/failure messages      | T/F    | [ T/F ] |
-| **Total**                             | **40** | [ /40]  |
+| Automated deployment script (run.sh)  | 15     | [ 15/15]  |
+| ↳ Script successfully deploys Laravel | T/F    | [ T ] |
+| Used existing shell script examples   | 15     | [ 15/15]  |
+| ↳ Properly adapted for Laravel        | T/F    | [ T ] |
+| Created a screen capture              | 10     | [ 10/10]  |
+| ↳ Clear success/failure messages      | T/F    | [ T ] |
+| **Total**                             | **40** | [ 40/40]  |
 
 ---
 
