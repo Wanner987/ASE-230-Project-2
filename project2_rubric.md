@@ -132,24 +132,24 @@ A: You should prove that your code (or script) works by screen capture your outp
 
 - [ /15] **Containerized Laravel application** using Docker and Docker Compose
   - Docker files created: 
-  - [T/F] Dockerfile properly configured for Laravel
+  - [T] Dockerfile properly configured for Laravel
 - [ /15] Created **setup script** (`setup.sh`) for one-command Docker deployment
   - Setup script file name:
   - [T/F] Script successfully builds and runs Docker containers
 - [ /10] Created a screen capture to show the script can setup and run Docker
   - GitHub Link or Filename of the screen capture: 
-  - [T/F] Screen capture included
+  - [T] Screen capture included
 
 ---
 
 | Task                                  | Points | Earned  |
 |---------------------------------------|--------|---------|
-| Docker containerization (Laravel app) | 15     | [ /15]  |
-| ↳ Dockerfile properly configured      | T/F    | [ T/F ] |
+| Docker containerization (Laravel app) | 15     | [ 15/15]  |
+| ↳ Dockerfile properly configured      | T/F    | [ T ] |
 | Setup script for Docker deployment    | 15     | [ /15]  |
 | ↳ Script builds and runs containers   | T/F    | [ T/F ] |
-| Created a screen capture              | 10     | [ /10]  |
-| ↳ Clear success/failure messages      | T/F    | [ T/F ] |
+| Created a screen capture              | 10     | [ 10/10]  |
+| ↳ Clear success/failure messages      | T/F    | [ T ] |
 | **Total**                             | **40** | [ /40]  |
 
 ---
