@@ -245,10 +245,10 @@ Professor will regrade to add or subtract points.
 |-----------------------------------------|---------|---------|
 | 🔹 Laravel Implementation               | 40      | [ 40/40]  |
 | 🔹 Deploy with a shell script           | 40      | [ 40/40]  |
-| 🔹 Deploy with Docker                   | 40      | [ /40]  |
+| 🔹 Deploy with Docker                   | 40      | [ 40/40]  |
 | 🔹 Re-implement Project 1 Documentation | 40      | [ /40]  |
 | 🔹 Automatic Deploy to GitHub.io        | 40      | [ /40]  |
-| **Total**                               | **200** | [ 80/200] |
+| **Total**                               | **200** | [ 120/200] |
 
 ---
 
