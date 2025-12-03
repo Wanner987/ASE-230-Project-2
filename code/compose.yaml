@@ -41,18 +41,18 @@
 #   db-password:
 #     file: db/password.txt
 
-version: '3.8'
+# version: '3.8'
 
 services:
   app:
     build:
       context: .
-      dockerfile: DockerFile
+      dockerfile: Dockerfile
     image: music-api:dev
     volumes:
       - ./music-api:/var/www/html:cached
     ports:
-      - "9000:9000"
+      - "8000:8000"
     environment:
       - APP_ENV=local
       - APP_DEBUG=1
@@ -74,7 +74,6 @@ services:
   #   depends_on:
   #     - app
 
-volumes:
   # If you prefer a named volume for DB storage use this and change the volume mapping
   # db_data: {}
 

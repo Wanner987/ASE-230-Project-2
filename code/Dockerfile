@@ -47,6 +47,13 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 # Copy app files from the app directory.
 COPY ./music-api /var/www/html
 
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Ensure global composer directory exists for www-data
+RUN mkdir -p /var/www/.composer && \
+    chown -R www-data:www-data /var/www/.composer
+
 # Switch to a non-privileged user (defined in the base image) that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
 USER www-data
