@@ -18,10 +18,10 @@ Total Points: 200
 **If you did not finish any of the tasks, do not check the item.**
 
 [X] I understand the policy & Rule.
-[ ] I uploaded all my project results (module2) to GitHub.
-[ ] I uploaded all my project document (module3) to GitHub.io.
-[ ] I zipped all of my project results (module2) in the submission.
-[ ] I zipped all of my project document (module3) in the submission.
+[X] I uploaded all my project results (module2) to GitHub.
+[X] I uploaded all my project document (module3) to GitHub.io.
+[X] I zipped all of my project results (module2) in the submission.
+[X] I zipped all of my project document (module3) in the submission.
 
 ---
 
@@ -29,9 +29,9 @@ Total Points: 200
 
 - Your ASE230 Project GitHub Repository: https://github.com/Wanner987/ASE-230-Project-2 
   - GitHub Link to your code (module 2): https://github.com/Wanner987/ASE-230-Project-2/tree/main/code 
-  - The Zip file name: ___ and size: ____
-  - GitHub.io Link (module 3): ___
-  - The Zip file name: ___ and size: ____
+  - The Zip file name: code.zip and size: 28,207 KB
+  - GitHub.io Link (module 3): https://github.com/Wanner987/ASE-230-Project-2/tree/main/presentation 
+  - The Zip file name: presentation.zip and size: 425 KB
 
 ---
 
@@ -233,7 +233,7 @@ Professor will regrade to add or subtract points.
 - [X] Pushed to GitHub
 - [ ] Zipped the code/document.
 - [X] Checked there is no .git directory or any hidden directories included from the zipped file size (______). <- write the file sizes
-- [ ] Copy zipped files in correct directory: `code/`, `presentation/`, `plan/`  
+- [X] Copy zipped files in correct directory: `code/`, `presentation/`, `plan/`  
 - [X] Project ready for **professional portfolio showcase**  
 - [ ] Hugo site deployed to GitHub.io and accessible  
 
