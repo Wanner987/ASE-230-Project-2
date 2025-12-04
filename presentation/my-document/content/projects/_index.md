@@ -1,5 +1,12 @@
-+++
-date = '2025-12-03T18:15:48-05:00'
-draft = true
-title = 'Projects'
-+++
+---
+title: "Music api"
+date: 2024-01-15
+draft: true
+---
+# This Page
+
+- On the left is how the Music-api works
+- The right is a portfolio of projects I have done for this class (ASE 230)
+
+---
+

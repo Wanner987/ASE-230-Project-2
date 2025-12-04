@@ -65,7 +65,7 @@ A: Yes, the code directory should contain the Laravel code and scripts (module 2
 
   - [T/F] Uses Laravel routing and controllers properly
 - [ /15] Used **Eloquent ORM** for database operations (no raw SQL queries)
-  - List your Eloquent models:
+  - List your Eloquent models: song, artist, playlist, playlistsongs, users
   - [T/F] Proper model relationships implemented
 - [ 10/10] Implemented authentication using **Laravel Sanctum** or similar
   - Authentication method used: Sanctum
@@ -104,7 +104,7 @@ The professor will regrade to add or subtract points.
   - Script file name: run.sh
   - [T/F] Script successfully deploys Laravel application
 - [ /10] Created a screen capture to show the script can start the Laravel REST API project
-  - GitHub Link or Filename of the screen capture: 
+  - GitHub Link or Filename of the screen capture: https://github.com/Wanner987/ASE-230-Project-2/blob/main/Screenshot%20working%20shell%20script.png 
   - [T/F] Screen capture included
 
 ---
@@ -137,7 +137,7 @@ A: You should prove that your code (or script) works by screen capture your outp
   - Setup script file name: setup.sh
   - [T] Script successfully builds and runs Docker containers
 - [ 10/10] Created a screen capture to show the script can setup and run Docker
-  - GitHub Link or Filename of the screen capture: 
+  - GitHub Link or Filename of the screen capture: https://github.com/Wanner987/ASE-230-Project-2/blob/main/Screenshot%20docker%20shell%20script%20working%20for%20project%202.png 
   - [T] Screen capture included
 
 ---
@@ -157,13 +157,13 @@ A: You should prove that your code (or script) works by screen capture your outp
 ## 🔹 Re-implement Project 1 Documentation (40 pts)
 
 - [ /15] **Re-implemented Project 1 documentation** using Hugo (transformed from Marp)
-  - Hugo site structure created: 15
+  - Hugo site structure created: 
   - [T] Successfully converted Marp to Hugo markdown
 - [ /15] **Added portfolio pages** to Hugo site
   - Portfolio pages added:
   - [T/F] Portfolio showcases ASE230 projects effectively
 - [ /10] Created a screen capture to show you can use Hugo to build web site for your portfolio
-  - GitHub Link or Filename of the screen capture: 
+  - GitHub Link or Filename of the screen capture: https://github.com/Wanner987/ASE-230-Project-2/blob/main/Screenshot%20show%20hugo%20site%20is%20working.png 
   - [T/F  ] Screen capture included
 
 ---

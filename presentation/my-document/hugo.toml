@@ -10,6 +10,9 @@ theme = 'ananke'
   linkedin = "https://linkedin.com/in/yourusername"
   email = "john@example.com"
 
+[pagination]
+  pagersize = 5
+
 [menu]
   [[menu.main]]
     name = "Home"
