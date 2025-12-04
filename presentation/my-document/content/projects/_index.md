@@ -7,6 +7,7 @@ draft: false
 
 - On the left is how the Music-api works
 - The right is a portfolio of projects I have done for this class (ASE 230)
+- This is for class ASE 230
 
 ---
 
