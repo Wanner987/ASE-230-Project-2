@@ -157,10 +157,10 @@ A: You should prove that your code (or script) works by screen capture your outp
 ## 🔹 Re-implement Project 1 Documentation (40 pts)
 
 - [ /15] **Re-implemented Project 1 documentation** using Hugo (transformed from Marp)
-  - Hugo site structure created: 
+  - Hugo site structure created: hugo new site my-document
   - [T] Successfully converted Marp to Hugo markdown
 - [ /15] **Added portfolio pages** to Hugo site
-  - Portfolio pages added:
+  - Portfolio pages added: 
   - [T/F] Portfolio showcases ASE230 projects effectively
 - [ /10] Created a screen capture to show you can use Hugo to build web site for your portfolio
   - GitHub Link or Filename of the screen capture: https://github.com/Wanner987/ASE-230-Project-2/blob/main/Screenshot%20show%20hugo%20site%20is%20working.png 
@@ -193,13 +193,13 @@ A2: As a starter, you can add your ASE230 projects (PHP/Laravel REST API impleme
 ## 🔹 Automatic Deploy to GitHub.io (40 pts)
 
 - [ /15] **Published documentation to GitHub.io** using GitHub Actions
-  - GitHub.io site URL:
+  - GitHub.io site URL: https://github.com/Wanner987/Wanner987.github.io 
   - [T/F] Site is publicly accessible and functional
 - [ /15] **Uploaded complete source to GitHub** for automatic transformation
-  - GitHub repository URL:
+  - GitHub repository URL: https://github.com/Wanner987/Wanner987.github.io
   - [T/F] GitHub Actions successfully builds and deploys
 - [ /10] Created a screen capture to show you can run GitHub.io to deploy Hugo project
-  - GitHub Link or Filename of the screen capture:
+  - GitHub Link or Filename of the screen capture: 
   - [T/F] Screen capture included
 
 ---
