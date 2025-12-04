@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://Wanner987.github.io'
 languageCode = 'en-us'
-title = 'music api documentation and portfolio'
+title = 'music api documentation and portfolio for ASE 230 '
 theme = 'ananke'
 
 [params]

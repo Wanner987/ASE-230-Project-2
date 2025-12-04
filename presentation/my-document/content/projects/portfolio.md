@@ -2,6 +2,8 @@
 title: "Portfolio"
 description: "My Projects"
 date: 2025
+draft: false
+
 ---
 
 # 🧩 Projects

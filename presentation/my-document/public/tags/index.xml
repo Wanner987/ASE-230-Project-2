@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on music api documentation and portfolio</title>
-    <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on music api documentation and portfolio</description>
+    <title>Tags on music api documentation and portfolio for ASE 230 </title>
+    <link>https://Wanner987.github.io/tags/</link>
+    <description>Recent content in Tags on music api documentation and portfolio for ASE 230 </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://Wanner987.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

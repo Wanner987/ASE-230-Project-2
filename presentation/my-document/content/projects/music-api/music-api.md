@@ -1,7 +1,7 @@
 ---
 title: "Music api"
 date: 2024-01-15
-draft: true
+draft: false
 ---
 # How to test
 
