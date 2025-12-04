@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Music api | music api documentation and portfolio</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="How to test
+
+start a local server in some way (in my case I used xampp)
+start a mySQL server in some way (used xampp)
+Use the testingSQL file to create and fill the tables
+you need to dirct to http://localhost:port/project1/ASE-230-Project-1/code/
+then the index should load and you can mess with it
+
+
+Get Artist by ID explanation
+What it does
+
+The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that
+You would use this for
+
+searching for a artist
+directing someone to a specific artist
+more specific search than by name
+
+
+
+
+Get Artist by ID examples
+Example Usage
+
+in the html testing you would input the artist id in a form and below would show if it was successful or no row was found
+so you would input something like 2312537
+
+Returns this
+
+if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;name&rdquo;: &ldquo;Eve&rdquo;
+}
+if failure: &ldquo;error no row found&rdquo;
+
+
+Get Song by ID explanation
+What it does
+
+The way it works is taking in a ID from the get request url for songs and then quering a mySQL database for a ID that matches that
+You would use this for
+
+searching for a song
+directing someone to a specific song
+more specific search than by name or by any other attribue
+see if a song exits in a database
+
+
+
+
+Get Song by ID examples
+Example Usage
+
+in the html testing you would input the song id in a form and below would show if it was successful or no row was found
+so you would input something like 205638407
+
+Returns this
+
+{
+&ldquo;success&rdquo;: true,
+&ldquo;name&rdquo;: &ldquo;dragon force&rdquo;
+}
+if failure: &ldquo;error no row found&rdquo;
+
+
+Get User by ID explanation
+What it does
+
+The way it works is taking in a ID from the get request url for user and then quering a mySQL database for a ID that matches it and returns the row
+You would use this for
+
+searching for a user
+directing someone to a specific user
+more specific search
+to check if a user exists in the DB by that id
+
+
+
+
+Get User by ID examples
+Example Usage
+
+in the html testing you would input the user id in a form and below would show if it was successful or no row was found
+so you would input something like 644939995
+
+Returns this
+
+if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;name&rdquo;: &ldquo;newUser&rdquo;
+}
+
+of course it doesn&rsquo;t have to look like this since it responds with the row
+
+
+if failure: &ldquo;error no row found&rdquo;
+
+
+Get playlist by ID explanation
+What it does
+
+The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that
+You would use this for
+
+searching for a playlist
+want to find playlist associated with a user and vise versa
+you can also use it to find songs that are matched with this playlist by using it in conjuction with somehting like a seach songs with playlist id api
+
+
+
+
+Get playlist by ID examples
+Example Usage
+
+in the html testing you would input the playlist id in a form and below would show if it was successful or no row was found
+so you would input something like 1900738092
+
+Returns this
+
+if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;associatedUSer&rdquo;: 644939995
+}
+if failure: &ldquo;error no row found&rdquo;
+
+
+Get Song by Name explanation
+What it does
+
+The way it works is taking in a string from the get request url for search and then quering a mySQL database for a ID that matches that
+so something like search/string
+You would use this for
+
+getting all songs by that name
+you could use this to seach for songs with close names by using a algorithm to generlize the name
+
+
+
+
+Get Song by Name examples
+Example Usage
+
+in the html testing you would input the artist id in a form and below would show if it was successful or no row was found
+so you would input something like dramatergy
+
+Returns this
+
+if successful: {
+&ldquo;Song_ID&rdquo;: 23044146,
+&ldquo;Artist_ID&rdquo;: 0,
+&ldquo;Name&rdquo;: &ldquo;eve&rdquo;,
+&ldquo;Length_in_sec&rdquo;: 160
+}
+if failure: &ldquo;error no row found&rdquo;
+
+
+Post new user explanation
+What it does
+
+Works by
+
+inputing string for username and string for a password
+making a POST request for users like POST user/
+adding a row to the sql database with the data
+
+
+You would use this for
+
+creating a new user for a website
+
+
+
+
+Post new user examples
+Example Usage
+
+sending a POST request like {
+&ldquo;username&rdquo;: someName,
+&ldquo;hashed_password&rdquo;: hashedPassword
+}
+
+Returns this
+
+if successful: {
+&ldquo;success&rdquo;: true,
+}
+if failure: {
+&ldquo;success&rdquo;: false,
+}
+
+
+login explanation
+What it does
+
+Works by
+
+Taking in a username and password
+Making a post request to the /login api
+if successful make a bearer token and give it to the user in some way
+
+
+You would use this for
+
+logging in a user
+
+
+
+
+login examples
+Example Usage
+
+you would make a POST request to /login with something lie
+{
+&ldquo;username&rdquo;: username,
+&ldquo;password&rdquo;: password
+}
+
+Returns this
+
+if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;token&rdquo;: bearer token}
+if failure: {
+&ldquo;success&rdquo;: false,
+&ldquo;message&rdquo;: &ldquo;could not log user in&rdquo;}
+
+
+create new song explanation
+What it does
+
+Works by
+
+taking in from a POST request the name of the song and artist, the length of the song in seconds, and the token from thr user
+verifying the user
+updating the sql database
+
+
+You would use this for
+
+creating a new song in the database
+could be used by users and by the developers to fill the database
+
+
+
+
+create new song examples
+Example Usage
+
+sending a POST request to /song with something like {
+songName: &ldquo;name&rdquo;,
+songArtist: &ldquo;artist name&rdquo;,
+songLength: 160,
+songAuth: token}
+
+Returns this
+
+if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;songID&rdquo;: 47982357
+}
+if failure: {
+&ldquo;success&rdquo;: false,
+}
+
+
+create new playlist explanation
+What it does
+
+Works by
+
+taking in from a POST request the user id and auth token
+verifying the user
+updating the sql database
+
+
+You would use this for
+
+creating a new playlist in the database
+could be used by users and by the developers to fill the database
+
+
+
+
+create new playlist examples
+Example Usage
+
+sending a POST request to /playlist with something like {
+userID: 4298423,
+playlistAuth: token}
+
+Returns this
+
+if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;plalistID&rdquo;: 572935
+}
+if failure: {
+&ldquo;success&rdquo;: false,
+}
+
+
+add song to playlist explanation
+What it does
+
+Works by
+
+taking the POST request and getting a playlist ID, song ID, and a token
+verify the token
+update the DB
+
+
+You would use this for
+
+creating a link between a playlist and a song
+seeing what songs are in a playlist
+seeing what playlists or how many playlists a song is in
+
+
+
+
+add song to playlist examples
+Example Usage
+
+sending a POST request to /playlist with something like {
+playlistID: 4298423,
+songID: 936195,
+playlistAuth: token}
+
+Returns this
+
+if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;message&rdquo;: &ldquo;Added song by the ID songID to the playlist with the ID playlistID&rdquo;
+}
+if failure: {
+&ldquo;success&rdquo;: false,
+}
+">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Tanner Andrews">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/projects/music-api/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/projects/music-api/">
+  <meta property="og:site_name" content="music api documentation and portfolio">
+  <meta property="og:title" content="Music api">
+  <meta property="og:description" content="How to test start a local server in some way (in my case I used xampp) start a mySQL server in some way (used xampp) Use the testingSQL file to create and fill the tables you need to dirct to http://localhost:port/project1/ASE-230-Project-1/code/ then the index should load and you can mess with it Get Artist by ID explanation What it does The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that You would use this for searching for a artist directing someone to a specific artist more specific search than by name Get Artist by ID examples Example Usage in the html testing you would input the artist id in a form and below would show if it was successful or no row was found so you would input something like 2312537 Returns this if successful: { “success”: true, “name”: “Eve” } if failure: “error no row found” Get Song by ID explanation What it does The way it works is taking in a ID from the get request url for songs and then quering a mySQL database for a ID that matches that You would use this for searching for a song directing someone to a specific song more specific search than by name or by any other attribue see if a song exits in a database Get Song by ID examples Example Usage in the html testing you would input the song id in a form and below would show if it was successful or no row was found so you would input something like 205638407 Returns this { “success”: true, “name”: “dragon force” } if failure: “error no row found” Get User by ID explanation What it does The way it works is taking in a ID from the get request url for user and then quering a mySQL database for a ID that matches it and returns the row You would use this for searching for a user directing someone to a specific user more specific search to check if a user exists in the DB by that id Get User by ID examples Example Usage in the html testing you would input the user id in a form and below would show if it was successful or no row was found so you would input something like 644939995 Returns this if successful: { “success”: true, “name”: “newUser” } of course it doesn’t have to look like this since it responds with the row if failure: “error no row found” Get playlist by ID explanation What it does The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that You would use this for searching for a playlist want to find playlist associated with a user and vise versa you can also use it to find songs that are matched with this playlist by using it in conjuction with somehting like a seach songs with playlist id api Get playlist by ID examples Example Usage in the html testing you would input the playlist id in a form and below would show if it was successful or no row was found so you would input something like 1900738092 Returns this if successful: { “success”: true, “associatedUSer”: 644939995 } if failure: “error no row found” Get Song by Name explanation What it does The way it works is taking in a string from the get request url for search and then quering a mySQL database for a ID that matches that so something like search/string You would use this for getting all songs by that name you could use this to seach for songs with close names by using a algorithm to generlize the name Get Song by Name examples Example Usage in the html testing you would input the artist id in a form and below would show if it was successful or no row was found so you would input something like dramatergy Returns this if successful: { “Song_ID”: 23044146, “Artist_ID”: 0, “Name”: “eve”, “Length_in_sec”: 160 } if failure: “error no row found” Post new user explanation What it does Works by inputing string for username and string for a password making a POST request for users like POST user/ adding a row to the sql database with the data You would use this for creating a new user for a website Post new user examples Example Usage sending a POST request like { “username”: someName, “hashed_password”: hashedPassword } Returns this if successful: { “success”: true, } if failure: { “success”: false, } login explanation What it does Works by Taking in a username and password Making a post request to the /login api if successful make a bearer token and give it to the user in some way You would use this for logging in a user login examples Example Usage you would make a POST request to /login with something lie { “username”: username, “password”: password } Returns this if successful: { “success”: true, “token”: bearer token} if failure: { “success”: false, “message”: “could not log user in”} create new song explanation What it does Works by taking in from a POST request the name of the song and artist, the length of the song in seconds, and the token from thr user verifying the user updating the sql database You would use this for creating a new song in the database could be used by users and by the developers to fill the database create new song examples Example Usage sending a POST request to /song with something like { songName: “name”, songArtist: “artist name”, songLength: 160, songAuth: token} Returns this if successful: { “success”: true, “songID”: 47982357 } if failure: { “success”: false, } create new playlist explanation What it does Works by taking in from a POST request the user id and auth token verifying the user updating the sql database You would use this for creating a new playlist in the database could be used by users and by the developers to fill the database create new playlist examples Example Usage sending a POST request to /playlist with something like { userID: 4298423, playlistAuth: token} Returns this if successful: { “success”: true, “plalistID”: 572935 } if failure: { “success”: false, } add song to playlist explanation What it does Works by taking the POST request and getting a playlist ID, song ID, and a token verify the token update the DB You would use this for creating a link between a playlist and a song seeing what songs are in a playlist seeing what playlists or how many playlists a song is in add song to playlist examples Example Usage sending a POST request to /playlist with something like { playlistID: 4298423, songID: 936195, playlistAuth: token} Returns this if successful: { “success”: true, “message”: “Added song by the ID songID to the playlist with the ID playlistID” } if failure: { “success”: false, }">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2024-01-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-15T00:00:00+00:00">
+
+  <meta itemprop="name" content="Music api">
+  <meta itemprop="description" content="How to test start a local server in some way (in my case I used xampp) start a mySQL server in some way (used xampp) Use the testingSQL file to create and fill the tables you need to dirct to http://localhost:port/project1/ASE-230-Project-1/code/ then the index should load and you can mess with it Get Artist by ID explanation What it does The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that You would use this for searching for a artist directing someone to a specific artist more specific search than by name Get Artist by ID examples Example Usage in the html testing you would input the artist id in a form and below would show if it was successful or no row was found so you would input something like 2312537 Returns this if successful: { “success”: true, “name”: “Eve” } if failure: “error no row found” Get Song by ID explanation What it does The way it works is taking in a ID from the get request url for songs and then quering a mySQL database for a ID that matches that You would use this for searching for a song directing someone to a specific song more specific search than by name or by any other attribue see if a song exits in a database Get Song by ID examples Example Usage in the html testing you would input the song id in a form and below would show if it was successful or no row was found so you would input something like 205638407 Returns this { “success”: true, “name”: “dragon force” } if failure: “error no row found” Get User by ID explanation What it does The way it works is taking in a ID from the get request url for user and then quering a mySQL database for a ID that matches it and returns the row You would use this for searching for a user directing someone to a specific user more specific search to check if a user exists in the DB by that id Get User by ID examples Example Usage in the html testing you would input the user id in a form and below would show if it was successful or no row was found so you would input something like 644939995 Returns this if successful: { “success”: true, “name”: “newUser” } of course it doesn’t have to look like this since it responds with the row if failure: “error no row found” Get playlist by ID explanation What it does The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that You would use this for searching for a playlist want to find playlist associated with a user and vise versa you can also use it to find songs that are matched with this playlist by using it in conjuction with somehting like a seach songs with playlist id api Get playlist by ID examples Example Usage in the html testing you would input the playlist id in a form and below would show if it was successful or no row was found so you would input something like 1900738092 Returns this if successful: { “success”: true, “associatedUSer”: 644939995 } if failure: “error no row found” Get Song by Name explanation What it does The way it works is taking in a string from the get request url for search and then quering a mySQL database for a ID that matches that so something like search/string You would use this for getting all songs by that name you could use this to seach for songs with close names by using a algorithm to generlize the name Get Song by Name examples Example Usage in the html testing you would input the artist id in a form and below would show if it was successful or no row was found so you would input something like dramatergy Returns this if successful: { “Song_ID”: 23044146, “Artist_ID”: 0, “Name”: “eve”, “Length_in_sec”: 160 } if failure: “error no row found” Post new user explanation What it does Works by inputing string for username and string for a password making a POST request for users like POST user/ adding a row to the sql database with the data You would use this for creating a new user for a website Post new user examples Example Usage sending a POST request like { “username”: someName, “hashed_password”: hashedPassword } Returns this if successful: { “success”: true, } if failure: { “success”: false, } login explanation What it does Works by Taking in a username and password Making a post request to the /login api if successful make a bearer token and give it to the user in some way You would use this for logging in a user login examples Example Usage you would make a POST request to /login with something lie { “username”: username, “password”: password } Returns this if successful: { “success”: true, “token”: bearer token} if failure: { “success”: false, “message”: “could not log user in”} create new song explanation What it does Works by taking in from a POST request the name of the song and artist, the length of the song in seconds, and the token from thr user verifying the user updating the sql database You would use this for creating a new song in the database could be used by users and by the developers to fill the database create new song examples Example Usage sending a POST request to /song with something like { songName: “name”, songArtist: “artist name”, songLength: 160, songAuth: token} Returns this if successful: { “success”: true, “songID”: 47982357 } if failure: { “success”: false, } create new playlist explanation What it does Works by taking in from a POST request the user id and auth token verifying the user updating the sql database You would use this for creating a new playlist in the database could be used by users and by the developers to fill the database create new playlist examples Example Usage sending a POST request to /playlist with something like { userID: 4298423, playlistAuth: token} Returns this if successful: { “success”: true, “plalistID”: 572935 } if failure: { “success”: false, } add song to playlist explanation What it does Works by taking the POST request and getting a playlist ID, song ID, and a token verify the token update the DB You would use this for creating a link between a playlist and a song seeing what songs are in a playlist seeing what playlists or how many playlists a song is in add song to playlist examples Example Usage sending a POST request to /playlist with something like { playlistID: 4298423, songID: 936195, playlistAuth: token} Returns this if successful: { “success”: true, “message”: “Added song by the ID songID to the playlist with the ID playlistID” } if failure: { “success”: false, }">
+  <meta itemprop="datePublished" content="2024-01-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-01-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1175">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Music api">
+  <meta name="twitter:description" content="How to test start a local server in some way (in my case I used xampp) start a mySQL server in some way (used xampp) Use the testingSQL file to create and fill the tables you need to dirct to http://localhost:port/project1/ASE-230-Project-1/code/ then the index should load and you can mess with it Get Artist by ID explanation What it does The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that You would use this for searching for a artist directing someone to a specific artist more specific search than by name Get Artist by ID examples Example Usage in the html testing you would input the artist id in a form and below would show if it was successful or no row was found so you would input something like 2312537 Returns this if successful: { “success”: true, “name”: “Eve” } if failure: “error no row found” Get Song by ID explanation What it does The way it works is taking in a ID from the get request url for songs and then quering a mySQL database for a ID that matches that You would use this for searching for a song directing someone to a specific song more specific search than by name or by any other attribue see if a song exits in a database Get Song by ID examples Example Usage in the html testing you would input the song id in a form and below would show if it was successful or no row was found so you would input something like 205638407 Returns this { “success”: true, “name”: “dragon force” } if failure: “error no row found” Get User by ID explanation What it does The way it works is taking in a ID from the get request url for user and then quering a mySQL database for a ID that matches it and returns the row You would use this for searching for a user directing someone to a specific user more specific search to check if a user exists in the DB by that id Get User by ID examples Example Usage in the html testing you would input the user id in a form and below would show if it was successful or no row was found so you would input something like 644939995 Returns this if successful: { “success”: true, “name”: “newUser” } of course it doesn’t have to look like this since it responds with the row if failure: “error no row found” Get playlist by ID explanation What it does The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that You would use this for searching for a playlist want to find playlist associated with a user and vise versa you can also use it to find songs that are matched with this playlist by using it in conjuction with somehting like a seach songs with playlist id api Get playlist by ID examples Example Usage in the html testing you would input the playlist id in a form and below would show if it was successful or no row was found so you would input something like 1900738092 Returns this if successful: { “success”: true, “associatedUSer”: 644939995 } if failure: “error no row found” Get Song by Name explanation What it does The way it works is taking in a string from the get request url for search and then quering a mySQL database for a ID that matches that so something like search/string You would use this for getting all songs by that name you could use this to seach for songs with close names by using a algorithm to generlize the name Get Song by Name examples Example Usage in the html testing you would input the artist id in a form and below would show if it was successful or no row was found so you would input something like dramatergy Returns this if successful: { “Song_ID”: 23044146, “Artist_ID”: 0, “Name”: “eve”, “Length_in_sec”: 160 } if failure: “error no row found” Post new user explanation What it does Works by inputing string for username and string for a password making a POST request for users like POST user/ adding a row to the sql database with the data You would use this for creating a new user for a website Post new user examples Example Usage sending a POST request like { “username”: someName, “hashed_password”: hashedPassword } Returns this if successful: { “success”: true, } if failure: { “success”: false, } login explanation What it does Works by Taking in a username and password Making a post request to the /login api if successful make a bearer token and give it to the user in some way You would use this for logging in a user login examples Example Usage you would make a POST request to /login with something lie { “username”: username, “password”: password } Returns this if successful: { “success”: true, “token”: bearer token} if failure: { “success”: false, “message”: “could not log user in”} create new song explanation What it does Works by taking in from a POST request the name of the song and artist, the length of the song in seconds, and the token from thr user verifying the user updating the sql database You would use this for creating a new song in the database could be used by users and by the developers to fill the database create new song examples Example Usage sending a POST request to /song with something like { songName: “name”, songArtist: “artist name”, songLength: 160, songAuth: token} Returns this if successful: { “success”: true, “songID”: 47982357 } if failure: { “success”: false, } create new playlist explanation What it does Works by taking in from a POST request the user id and auth token verifying the user updating the sql database You would use this for creating a new playlist in the database could be used by users and by the developers to fill the database create new playlist examples Example Usage sending a POST request to /playlist with something like { userID: 4298423, playlistAuth: token} Returns this if successful: { “success”: true, “plalistID”: 572935 } if failure: { “success”: false, } add song to playlist explanation What it does Works by taking the POST request and getting a playlist ID, song ID, and a token verify the token update the DB You would use this for creating a link between a playlist and a song seeing what songs are in a playlist seeing what playlists or how many playlists a song is in add song to playlist examples Example Usage sending a POST request to /playlist with something like { playlistID: 4298423, songID: 936195, playlistAuth: token} Returns this if successful: { “success”: true, “message”: “Added song by the ID songID to the playlist with the ID playlistID” } if failure: { “success”: false, }">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        music api documentation and portfolio
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/projects/" title="Projects page">
+              Projects
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Projects
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Music api</h1>
+      
+      <p class="tracked"><strong>Tanner Andrews</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-01-15T00:00:00Z">January 15, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h1 id="how-to-test">How to test</h1>
+<ul>
+<li>start a local server in some way (in my case I used xampp)</li>
+<li>start a mySQL server in some way (used xampp)</li>
+<li>Use the testingSQL file to create and fill the tables</li>
+<li>you need to dirct to http://localhost:port/project1/ASE-230-Project-1/code/</li>
+<li>then the index should load and you can mess with it</li>
+</ul>
+<hr>
+<h1 id="get-artist-by-id-explanation">Get Artist by ID explanation</h1>
+<h2 id="what-it-does">What it does</h2>
+<ul>
+<li>The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that</li>
+<li>You would use this for
+<ul>
+<li>searching for a artist</li>
+<li>directing someone to a specific artist</li>
+<li>more specific search than by name</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="get-artist-by-id-examples">Get Artist by ID examples</h1>
+<h2 id="example-usage">Example Usage</h2>
+<ul>
+<li>in the html testing you would input the artist id in a form and below would show if it was successful or no row was found</li>
+<li>so you would input something like 2312537</li>
+</ul>
+<h2 id="returns-this">Returns this</h2>
+<ul>
+<li>if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;name&rdquo;: &ldquo;Eve&rdquo;
+}</li>
+<li>if failure: &ldquo;error no row found&rdquo;</li>
+</ul>
+<hr>
+<h1 id="get-song-by-id-explanation">Get Song by ID explanation</h1>
+<h2 id="what-it-does-1">What it does</h2>
+<ul>
+<li>The way it works is taking in a ID from the get request url for songs and then quering a mySQL database for a ID that matches that</li>
+<li>You would use this for
+<ul>
+<li>searching for a song</li>
+<li>directing someone to a specific song</li>
+<li>more specific search than by name or by any other attribue</li>
+<li>see if a song exits in a database</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="get-song-by-id-examples">Get Song by ID examples</h1>
+<h2 id="example-usage-1">Example Usage</h2>
+<ul>
+<li>in the html testing you would input the song id in a form and below would show if it was successful or no row was found</li>
+<li>so you would input something like 205638407</li>
+</ul>
+<h2 id="returns-this-1">Returns this</h2>
+<ul>
+<li>{
+&ldquo;success&rdquo;: true,
+&ldquo;name&rdquo;: &ldquo;dragon force&rdquo;
+}</li>
+<li>if failure: &ldquo;error no row found&rdquo;</li>
+</ul>
+<hr>
+<h1 id="get-user-by-id-explanation">Get User by ID explanation</h1>
+<h2 id="what-it-does-2">What it does</h2>
+<ul>
+<li>The way it works is taking in a ID from the get request url for user and then quering a mySQL database for a ID that matches it and returns the row</li>
+<li>You would use this for
+<ul>
+<li>searching for a user</li>
+<li>directing someone to a specific user</li>
+<li>more specific search</li>
+<li>to check if a user exists in the DB by that id</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="get-user-by-id-examples">Get User by ID examples</h1>
+<h2 id="example-usage-2">Example Usage</h2>
+<ul>
+<li>in the html testing you would input the user id in a form and below would show if it was successful or no row was found</li>
+<li>so you would input something like 644939995</li>
+</ul>
+<h2 id="returns-this-2">Returns this</h2>
+<ul>
+<li>if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;name&rdquo;: &ldquo;newUser&rdquo;
+}
+<ul>
+<li>of course it doesn&rsquo;t have to look like this since it responds with the row</li>
+</ul>
+</li>
+<li>if failure: &ldquo;error no row found&rdquo;</li>
+</ul>
+<hr>
+<h1 id="get-playlist-by-id-explanation">Get playlist by ID explanation</h1>
+<h2 id="what-it-does-3">What it does</h2>
+<ul>
+<li>The way it works is taking in a ID from the get request url and then quering a mySQL database for a ID that matches that</li>
+<li>You would use this for
+<ul>
+<li>searching for a playlist</li>
+<li>want to find playlist associated with a user and vise versa</li>
+<li>you can also use it to find songs that are matched with this playlist by using it in conjuction with somehting like a seach songs with playlist id api</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="get-playlist-by-id-examples">Get playlist by ID examples</h1>
+<h2 id="example-usage-3">Example Usage</h2>
+<ul>
+<li>in the html testing you would input the playlist id in a form and below would show if it was successful or no row was found</li>
+<li>so you would input something like 1900738092</li>
+</ul>
+<h2 id="returns-this-3">Returns this</h2>
+<ul>
+<li>if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;associatedUSer&rdquo;: 644939995
+}</li>
+<li>if failure: &ldquo;error no row found&rdquo;</li>
+</ul>
+<hr>
+<h1 id="get-song-by-name-explanation">Get Song by Name explanation</h1>
+<h2 id="what-it-does-4">What it does</h2>
+<ul>
+<li>The way it works is taking in a string from the get request url for search and then quering a mySQL database for a ID that matches that</li>
+<li>so something like search/string</li>
+<li>You would use this for
+<ul>
+<li>getting all songs by that name</li>
+<li>you could use this to seach for songs with close names by using a algorithm to generlize the name</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="get-song-by-name-examples">Get Song by Name examples</h1>
+<h2 id="example-usage-4">Example Usage</h2>
+<ul>
+<li>in the html testing you would input the artist id in a form and below would show if it was successful or no row was found</li>
+<li>so you would input something like dramatergy</li>
+</ul>
+<h2 id="returns-this-4">Returns this</h2>
+<ul>
+<li>if successful: {
+&ldquo;Song_ID&rdquo;: 23044146,
+&ldquo;Artist_ID&rdquo;: 0,
+&ldquo;Name&rdquo;: &ldquo;eve&rdquo;,
+&ldquo;Length_in_sec&rdquo;: 160
+}</li>
+<li>if failure: &ldquo;error no row found&rdquo;</li>
+</ul>
+<hr>
+<h1 id="post-new-user-explanation">Post new user explanation</h1>
+<h2 id="what-it-does-5">What it does</h2>
+<ul>
+<li>Works by
+<ul>
+<li>inputing string for username and string for a password</li>
+<li>making a POST request for users like POST user/</li>
+<li>adding a row to the sql database with the data</li>
+</ul>
+</li>
+<li>You would use this for
+<ul>
+<li>creating a new user for a website</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="post-new-user-examples">Post new user examples</h1>
+<h2 id="example-usage-5">Example Usage</h2>
+<ul>
+<li>sending a POST request like {
+&ldquo;username&rdquo;: someName,
+&ldquo;hashed_password&rdquo;: hashedPassword
+}</li>
+</ul>
+<h2 id="returns-this-5">Returns this</h2>
+<ul>
+<li>if successful: {
+&ldquo;success&rdquo;: true,
+}</li>
+<li>if failure: {
+&ldquo;success&rdquo;: false,
+}</li>
+</ul>
+<hr>
+<h1 id="login-explanation">login explanation</h1>
+<h2 id="what-it-does-6">What it does</h2>
+<ul>
+<li>Works by
+<ul>
+<li>Taking in a username and password</li>
+<li>Making a post request to the /login api</li>
+<li>if successful make a bearer token and give it to the user in some way</li>
+</ul>
+</li>
+<li>You would use this for
+<ul>
+<li>logging in a user</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="login-examples">login examples</h1>
+<h2 id="example-usage-6">Example Usage</h2>
+<ul>
+<li>you would make a POST request to /login with something lie
+{
+&ldquo;username&rdquo;: username,
+&ldquo;password&rdquo;: password
+}</li>
+</ul>
+<h2 id="returns-this-6">Returns this</h2>
+<ul>
+<li>if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;token&rdquo;: bearer token}</li>
+<li>if failure: {
+&ldquo;success&rdquo;: false,
+&ldquo;message&rdquo;: &ldquo;could not log user in&rdquo;}</li>
+</ul>
+<hr>
+<h1 id="create-new-song-explanation">create new song explanation</h1>
+<h2 id="what-it-does-7">What it does</h2>
+<ul>
+<li>Works by
+<ul>
+<li>taking in from a POST request the name of the song and artist, the length of the song in seconds, and the token from thr user</li>
+<li>verifying the user</li>
+<li>updating the sql database</li>
+</ul>
+</li>
+<li>You would use this for
+<ul>
+<li>creating a new song in the database</li>
+<li>could be used by users and by the developers to fill the database</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="create-new-song-examples">create new song examples</h1>
+<h2 id="example-usage-7">Example Usage</h2>
+<ul>
+<li>sending a POST request to /song with something like {
+songName: &ldquo;name&rdquo;,
+songArtist: &ldquo;artist name&rdquo;,
+songLength: 160,
+songAuth: token}</li>
+</ul>
+<h2 id="returns-this-7">Returns this</h2>
+<ul>
+<li>if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;songID&rdquo;: 47982357
+}</li>
+<li>if failure: {
+&ldquo;success&rdquo;: false,
+}</li>
+</ul>
+<hr>
+<h1 id="create-new-playlist-explanation">create new playlist explanation</h1>
+<h2 id="what-it-does-8">What it does</h2>
+<ul>
+<li>Works by
+<ul>
+<li>taking in from a POST request the user id and auth token</li>
+<li>verifying the user</li>
+<li>updating the sql database</li>
+</ul>
+</li>
+<li>You would use this for
+<ul>
+<li>creating a new playlist in the database</li>
+<li>could be used by users and by the developers to fill the database</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="create-new-playlist-examples">create new playlist examples</h1>
+<h2 id="example-usage-8">Example Usage</h2>
+<ul>
+<li>sending a POST request to /playlist with something like {
+userID: 4298423,
+playlistAuth: token}</li>
+</ul>
+<h2 id="returns-this-8">Returns this</h2>
+<ul>
+<li>if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;plalistID&rdquo;: 572935
+}</li>
+<li>if failure: {
+&ldquo;success&rdquo;: false,
+}</li>
+</ul>
+<hr>
+<h1 id="add-song-to-playlist-explanation">add song to playlist explanation</h1>
+<h2 id="what-it-does-9">What it does</h2>
+<ul>
+<li>Works by
+<ul>
+<li>taking the POST request and getting a playlist ID, song ID, and a token</li>
+<li>verify the token</li>
+<li>update the DB</li>
+</ul>
+</li>
+<li>You would use this for
+<ul>
+<li>creating a link between a playlist and a song</li>
+<li>seeing what songs are in a playlist</li>
+<li>seeing what playlists or how many playlists a song is in</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="add-song-to-playlist-examples">add song to playlist examples</h1>
+<h2 id="example-usage-9">Example Usage</h2>
+<ul>
+<li>sending a POST request to /playlist with something like {
+playlistID: 4298423,
+songID: 936195,
+playlistAuth: token}</li>
+</ul>
+<h2 id="returns-this-9">Returns this</h2>
+<ul>
+<li>if successful: {
+&ldquo;success&rdquo;: true,
+&ldquo;message&rdquo;: &ldquo;Added song by the ID songID to the playlist with the ID playlistID&rdquo;
+}</li>
+<li>if failure: {
+&ldquo;success&rdquo;: false,
+}</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  music api documentation and portfolio 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

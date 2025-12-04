@@ -157,20 +157,20 @@ A: You should prove that your code (or script) works by screen capture your outp
 ## 🔹 Re-implement Project 1 Documentation (40 pts)
 
 - [ /15] **Re-implemented Project 1 documentation** using Hugo (transformed from Marp)
-  - Hugo site structure created:
-  - [T/F] Successfully converted Marp to Hugo markdown
+  - Hugo site structure created: 15
+  - [T] Successfully converted Marp to Hugo markdown
 - [ /15] **Added portfolio pages** to Hugo site
   - Portfolio pages added:
   - [T/F] Portfolio showcases ASE230 projects effectively
 - [ /10] Created a screen capture to show you can use Hugo to build web site for your portfolio
-  - GitHub Link or Filename of the screen capture:
-  - [T/F] Screen capture included
+  - GitHub Link or Filename of the screen capture: 
+  - [T/F  ] Screen capture included
 
 ---
 
 | Task                             | Points | Earned  |
 |----------------------------------|--------|---------|
-| Hugo documentation (from Marp)   | 15     | [ /15]  |
+| Hugo documentation (from Marp)   | 15     | [ 15/15]  |
 | ↳ Successfully converted to Hugo | T/F    | [ T/F ] |
 | Portfolio pages added to Hugo    | 15     | [ /15]  |
 | ↳ Effective project showcase     | T/F    | [ T/F ] |

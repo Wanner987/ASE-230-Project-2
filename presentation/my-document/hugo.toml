@@ -1,0 +1,21 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'music api documentation and portfolio'
+theme = 'ananke'
+
+[params]
+  author = "Tanner Andrews"
+  description = "api documentation and portfolio"
+  github = "https://github.com/yourusername"
+  linkedin = "https://linkedin.com/in/yourusername"
+  email = "john@example.com"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Projects" 
+    url = "/projects/"
+    weight = 2
