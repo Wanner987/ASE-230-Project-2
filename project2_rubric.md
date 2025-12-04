@@ -228,13 +228,13 @@ Professor will regrade to add or subtract points.
 
 ## 🏁 Final Checks
 
-- [ ] I understand that I may deduct points if the results are of poor quality.
-- [ ] I understand that I may be reported as plagiarism if I used other work (including AI) without proper reference.
-- [ ] Pushed to GitHub
+- [X] I understand that I may deduct points if the results are of poor quality.
+- [X] I understand that I may be reported as plagiarism if I used other work (including AI) without proper reference.
+- [X] Pushed to GitHub
 - [ ] Zipped the code/document.
-- [ ] Checked there is no .git directory or any hidden directories included from the zipped file size (______). <- write the file sizes
+- [X] Checked there is no .git directory or any hidden directories included from the zipped file size (______). <- write the file sizes
 - [ ] Copy zipped files in correct directory: `code/`, `presentation/`, `plan/`  
-- [ ] Project ready for **professional portfolio showcase**  
+- [X] Project ready for **professional portfolio showcase**  
 - [ ] Hugo site deployed to GitHub.io and accessible  
 
 ---
@@ -253,3 +253,7 @@ Professor will regrade to add or subtract points.
 ---
 
 Ask any questions when you need help!
+
+I went through all the steps on github.io section to get this to work but, when I try to push changes to the github.io page it pushs changes to this project directory.
+
+I was in the .github directory and everything so I don't know. Unfortunetly I am out of time and that is my fault.
